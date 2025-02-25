@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Header } from '/src/components/layout/header/header';
 import { Footer } from '/src/components/layout/footer/footer';
@@ -9,7 +10,7 @@ const PageWrapper = () => {
     <>
       <Header />
       <Main>
-        Index page
+        <Outlet />
       </Main>
       <Footer />
     </>
