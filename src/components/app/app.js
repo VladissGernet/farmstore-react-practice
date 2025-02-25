@@ -14,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<PageWrapper />}>
           <Route index element={<Index />} />
-          <Route path="about" element={<h1>About</h1>} />
+          <Route path="order" element={<h1>Order</h1>} />
         </Route>
       </Routes>
     </BrowserRouter>

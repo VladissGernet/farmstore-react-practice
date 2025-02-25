@@ -1,9 +1,39 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 const StyledHeader = styled.header`
   background-color: #333333;
   color: #ffffff;
   padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
 `;
 
-export { StyledHeader };
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  background-color: ${(props) => props.theme.colorForButton};
+  color: #ffffff;
+
+  padding: 10px 20px;
+  min-width: 100px;
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colorForButtonHover};
+  }
+
+  &:active {
+    background-color: ${(props) => props.theme.colorForButtonHover};
+    opacity: 0.6;
+  }
+`;
+
+export {
+  StyledHeader,
+  StyledLink
+ };
