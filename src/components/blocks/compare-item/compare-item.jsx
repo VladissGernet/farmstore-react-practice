@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Title } from '/src/components/ui/title/title';
-import { StyledItem } from './styled';
+import { StyledItem, Description } from './styled';
 
 const CompareItem = ({item, type}) => (
   <StyledItem $icon={item.icon} $type={type}>
@@ -11,9 +11,9 @@ const CompareItem = ({item, type}) => (
     >
       {item.title}
     </Title>
-    <p>
+    <Description>
       {item.description}
-    </p>
+    </Description>
   </StyledItem>
 );
 

@@ -8,8 +8,14 @@ const StyledCompare = styled.section`
   background-color: ${(props) => props.theme.colorWhite};
 
   ${StyledContainer} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+
     & > ${StyledTitle} {
       text-align: center;
+      grid-column: 1 / 3;
+      margin-bottom: 50px;
     }
   }
 
