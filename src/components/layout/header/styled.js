@@ -1,14 +1,17 @@
 import styled from 'styled-components';
 
+import { StyledContainer } from '/src/components/layout/container/styled';
 import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   background-color: ${(props) => props.theme.colorWhite};
   padding: 20px;
 
-  display: flex;
-  justify-content: space-between;
-  min-height: 47px;
+  ${StyledContainer} {
+    display: flex;
+    justify-content: space-between;
+    min-height: 47px;
+  }
 `;
 
 const StyledLink = styled(Link)`

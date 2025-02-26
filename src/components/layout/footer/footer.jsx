@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Container } from '/src/components/layout/container/container';
 import { Logo } from '/src/components/ui/logo/logo';
 
 import { StyledFooter } from './styled';
@@ -7,7 +8,9 @@ import { StyledFooter } from './styled';
 const Footer = () => {
   return (
     <StyledFooter>
-      <Logo />
+      <Container>
+        <Logo />
+      </Container>
     </StyledFooter>
   )
 };
