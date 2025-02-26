@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container } from '/src/components/layout/container/container';
 import { Title } from '/src/components/ui/title/title';
+import { Checkbox } from '/src/components/ui/checkbox/checkbox';
 
 import { StyledOrder } from './styled';
 
@@ -15,7 +16,7 @@ const Order = () => {
         >
           Закажите доставку
         </Title>
-
+        <Checkbox />
 
 
 
