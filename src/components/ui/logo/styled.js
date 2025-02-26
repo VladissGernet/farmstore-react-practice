@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const LogoText = styled.span`
   font-size: 30px;
   font-weight: 700;
-  color: ${(props) => props.theme.colorWhite};
+  color: ${(props) => props.theme.colorBlackForText};
 `;
 
 const valueLinkTag = css`
