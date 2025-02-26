@@ -5,7 +5,8 @@ import { Title } from '/src/components/ui/title/title';
 import { CompareList } from '/src/components/blocks/compare-list/compare-list';
 
 import {
-  StyledCompare
+  StyledCompare,
+  StyledLink
  } from './styled';
 
 const Compare = () => {
@@ -19,6 +20,9 @@ const Compare = () => {
           Почему фермерские продукты лучше?
         </Title>
         <CompareList />
+        <StyledLink to="/order">
+          Заказать
+        </StyledLink>
       </Container>
     </StyledCompare>
   )
