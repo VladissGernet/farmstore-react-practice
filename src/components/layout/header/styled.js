@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
 
   display: flex;
   justify-content: space-between;
+  min-height: 47px;
 `;
 
 const StyledLink = styled(Link)`
