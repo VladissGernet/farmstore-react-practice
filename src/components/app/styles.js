@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     color: ${(props) => props.theme.colorBlackForText};
 
-    background-color: grey;
+    background-color: ${(props) => props.theme.colorWhite};
   }
 
   ${'' /* Sticky footer */}
