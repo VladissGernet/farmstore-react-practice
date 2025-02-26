@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   main {
+  ${'' /* Sticky footer */}
     flex-grow: 1;
   }
 `;
