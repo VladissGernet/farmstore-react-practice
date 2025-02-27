@@ -30,20 +30,28 @@ const Order = () => {
           Закажите доставку
         </Title>
 
-        <OrderSection>
-          <Title
-            level={2}
-            size="small"
-          >
-            Выберите продукты
-          </Title>
-          <CheckboxList
-          productsData={productsData}
-          productsState={productsState}
-          onProductChange={onProductChange}
-          setProducts={setProducts}
-          />
-        </OrderSection>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert('Заказ отправлен');
+          }}
+        >
+          <OrderSection>
+            <Title
+              level={2}
+              size="small"
+            >
+              Выберите продукты
+            </Title>
+            <CheckboxList
+            productsData={productsData}
+            productsState={productsState}
+            onProductChange={onProductChange}
+            setProducts={setProducts}
+            />
+          </OrderSection>
+          <button type="submit">Заказать</button>
+        </form>
       </Container>
     </StyledOrder>
   )
