@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import checkboxSelect from "/src/assets/checkbox.svg";
 
 const StyledText = styled.span`
   display: block;
@@ -12,11 +13,15 @@ const CheckboxState = styled.span`
   width: 22px;
   background-color: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
 
   transition: all 0.3s ease;
 
   ${(props) => props.$isChecked && `
-    background-color: ${props.theme.colorForButtonHover};`
+    background-color: ${props.theme.colorForButtonHover};
+    background-image: url(${checkboxSelect});`
   }
 `;
 

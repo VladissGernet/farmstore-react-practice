@@ -5,10 +5,9 @@ import { productsData } from '/src/mocks/products-data';
 
 import { Container } from '/src/components/layout/container/container';
 import { Title } from '/src/components/ui/title/title';
-import { Checkbox } from '/src/components/ui/checkbox/checkbox';
 import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
 
-import { StyledOrder } from './styled';
+import { StyledOrder, OrderSection } from './styled';
 
 const onProductChange = (index, setProducts) => {
   setProducts((prevProductsState) => {
@@ -31,12 +30,20 @@ const Order = () => {
           Закажите доставку
         </Title>
 
-        <CheckboxList
+        <OrderSection>
+          <Title
+            level={2}
+            size="small"
+          >
+            Выберите продукты
+          </Title>
+          <CheckboxList
           productsData={productsData}
           productsState={productsState}
           onProductChange={onProductChange}
           setProducts={setProducts}
-        />
+          />
+        </OrderSection>
       </Container>
     </StyledOrder>
   )
