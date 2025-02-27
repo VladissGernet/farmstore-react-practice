@@ -7,12 +7,14 @@ import { Container } from '/src/components/layout/container/container';
 import { Title } from '/src/components/ui/title/title';
 import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
 import { Button } from '/src/components/ui/button/button';
+import { Goods } from '/src/components/blocks/goods/goods';
 
 import {
   StyledOrder,
   ProductsSection,
   OrderSection,
-  StyledInput
+  StyledInput,
+  OrderForm
  } from './styled';
 
 const onProductChange = (index, setProducts) => {
@@ -43,8 +45,7 @@ const Order = () => {
         >
           Закажите доставку
         </Title>
-
-        <form
+        <OrderForm
           onSubmit={(e) => {
             e.preventDefault();
             alert('Заказ отправлен');
@@ -84,7 +85,8 @@ const Order = () => {
               Заказать
             </Button>
           </OrderSection>
-        </form>
+        </OrderForm>
+        <Goods goods={productsData} />
       </Container>
     </StyledOrder>
   )
