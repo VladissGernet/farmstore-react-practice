@@ -30,8 +30,7 @@ const Order = () => {
           Закажите доставку
         </Title>
         {
-          productsData &&
-          productsData.length &&
+          productsData?.length &&
           productsData.map((product, index) => (
             <Checkbox
               key={product.id}
