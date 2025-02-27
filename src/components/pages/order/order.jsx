@@ -9,10 +9,12 @@ import { Checkbox } from '/src/components/ui/checkbox/checkbox';
 
 import { StyledOrder } from './styled';
 
-const onProductChange = (e, index, productsState, setProducts) => {
-  const newProductsState = [...productsState];
-  newProductsState[index] = e.target.checked;
-  setProducts(newProductsState);
+const onProductChange = (index, setProducts) => {
+  setProducts((prevProductsState) => {
+    const newProductsState = [...prevProductsState];
+    newProductsState[index] = !newProductsState[index]; // Тогглить состояние чекбокса
+    return newProductsState;
+  });
 };
 
 const Order = () => {
@@ -36,7 +38,7 @@ const Order = () => {
               name='products'
               value={product.name}
               isChecked={productsState[index]}
-              onChange={(e) => onProductChange(e, index, productsState, setProducts)}
+              onChange={() => onProductChange(index, setProducts)}
             >
               {product.name}
             </Checkbox>
