@@ -17,7 +17,7 @@ const Checkbox = ({
   const Text = textComponent;
 
   return (
-    <Label>
+    <Label $isChecked={isChecked}>
       <VisuallyHiddenInput
         type="checkbox"
         name={name}

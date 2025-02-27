@@ -1,18 +1,6 @@
 import styled from 'styled-components';
 
-const StyledLabel = styled.label`
-  display: block;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-
-  padding-right: 50px;
-
-  background: tomato;
-`;
-
 const StyledText = styled.span`
-  outline: 5px solid black;
   display: block;
 `
 
@@ -25,9 +13,29 @@ const CheckboxState = styled.span`
   background-color: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.1);
 
+  transition: all 0.3s ease;
+
   ${(props) => props.$isChecked && `
-    background-color: green;`
+    background-color: ${props.theme.colorForButtonHover};`
   }
 `;
+
+const StyledLabel = styled.label`
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+
+  padding-right: 50px;
+
+  &:hover ${CheckboxState} {
+    border-color: ${(props) => props.theme.colorForButtonHover};
+
+    ${(props) => props.$isChecked && `
+      opacity: 0.6;`}
+  }
+`;
+
+
 
 export { StyledLabel, StyledText, CheckboxState };
