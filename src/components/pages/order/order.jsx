@@ -6,6 +6,7 @@ import { productsData } from '/src/mocks/products-data';
 import { Container } from '/src/components/layout/container/container';
 import { Title } from '/src/components/ui/title/title';
 import { Checkbox } from '/src/components/ui/checkbox/checkbox';
+import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
 
 import { StyledOrder } from './styled';
 
@@ -29,20 +30,13 @@ const Order = () => {
         >
           Закажите доставку
         </Title>
-        {
-          productsData?.length &&
-          productsData.map((product, index) => (
-            <Checkbox
-              key={product.id}
-              name='products'
-              value={product.name}
-              isChecked={productsState[index]}
-              onChange={() => onProductChange(index, setProducts)}
-            >
-              {product.name}
-            </Checkbox>
-          ))
-        }
+
+        <CheckboxList
+          productsData={productsData}
+          productsState={productsState}
+          onProductChange={onProductChange}
+          setProducts={setProducts}
+        />
       </Container>
     </StyledOrder>
   )
