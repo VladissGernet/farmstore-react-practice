@@ -2,19 +2,34 @@ import React from 'react';
 
 import { VisuallyHiddenInput } from '/src/components/styled';
 
-import { StyledLabel, StyledText } from './styled';
+import { StyledLabel, StyledText, CheckboxState } from './styled';
 
 const Checkbox = ({
   labelComponent = StyledLabel,
-  textComponent = StyledText
+  textComponent = StyledText,
+  name,
+  value,
+  isChecked,
+  onChange,
+  children
 }) => {
   const Label = labelComponent;
   const Text = textComponent;
 
   return (
     <Label>
-      <VisuallyHiddenInput type="checkbox" />
-      <Text>Checkbox</Text>
+      <VisuallyHiddenInput
+        type="checkbox"
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+      <CheckboxState
+        $isChecked={isChecked}
+      />
+      <Text>
+        {children}
+      </Text>
     </Label>
   );
 };

@@ -16,4 +16,18 @@ const StyledText = styled.span`
   display: block;
 `
 
-export { StyledLabel, StyledText };
+const CheckboxState = styled.span`
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  ${(props) => props.$isChecked && `
+    background-color: green;`
+  }
+`;
+
+export { StyledLabel, StyledText, CheckboxState };
