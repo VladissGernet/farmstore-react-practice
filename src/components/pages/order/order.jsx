@@ -6,8 +6,14 @@ import { productsData } from '/src/mocks/products-data';
 import { Container } from '/src/components/layout/container/container';
 import { Title } from '/src/components/ui/title/title';
 import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
+import { Button } from '/src/components/ui/button/button';
 
-import { StyledOrder, OrderSection } from './styled';
+import {
+  StyledOrder,
+  ProductsSection,
+  OrderSection,
+  StyledInput
+ } from './styled';
 
 const onProductChange = (index, setProducts) => {
   setProducts((prevProductsState) => {
@@ -18,7 +24,15 @@ const onProductChange = (index, setProducts) => {
 };
 
 const Order = () => {
+  if (productsData?.length === false) {
+    return null;
+  }
+
   const [productsState, setProducts] = useState(Array(productsData.length).fill(false));
+  const [address, setAddress] = useState('');
+
+  // Проверяем наличие выбранного хотябы одного продукта и заполненного поля адреса.
+  const isSubmitEnabled = productsState.some((product) => product) && Boolean(address);
 
   return (
     <StyledOrder>
@@ -36,7 +50,7 @@ const Order = () => {
             alert('Заказ отправлен');
           }}
         >
-          <OrderSection>
+          <ProductsSection>
             <Title
               level={2}
               size="small"
@@ -49,8 +63,27 @@ const Order = () => {
             onProductChange={onProductChange}
             setProducts={setProducts}
             />
+          </ProductsSection>
+          <OrderSection>
+            <Title
+              level={2}
+              size="small"
+            >
+              Сделать заказ
+            </Title>
+            <StyledInput
+              type="text"
+              placeholder="Введите адрес доставки"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <Button
+              type="submit"
+              isDisabled={!isSubmitEnabled}
+            >
+              Заказать
+            </Button>
           </OrderSection>
-          <button type="submit">Заказать</button>
         </form>
       </Container>
     </StyledOrder>
