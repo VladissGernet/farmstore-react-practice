@@ -41,6 +41,4 @@ const StyledLabel = styled.label`
   }
 `;
 
-
-
 export { StyledLabel, StyledText, CheckboxState };
