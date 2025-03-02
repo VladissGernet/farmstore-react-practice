@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Title } from '/src/components/ui/title/title';
-import { Tabs } from '/src/components/blocks/tabs/tabs';
 import { Specifications } from '/src/components/blocks/specifications/specifications';
+import { GoodsSlide } from '/src/components/blocks/goods-slide/goods-slide';
 
 import { Scrollbar } from 'swiper/modules';
 import {
   StyledSwiperSlide,
   StyledSwiper,
-  StyledImage,
   StyledDescription
 } from './styled';
 
@@ -51,19 +49,10 @@ const Goods = ({goods}) => {
         goods?.length &&
         goods.map((good, index) => (
           <StyledSwiperSlide key={good.id}>
-            <Title
-              level={3}
-              size="small"
-            >
-              {good.name}
-            </Title>
-            <StyledImage
-              src={good.image}
-              alt={good.name}
-              width={248}
-              height={248}
+            <GoodsSlide
+              good={good}
+              tabsData={goodsTabsData[index]}
             />
-            <Tabs data={goodsTabsData[index]} />
           </StyledSwiperSlide>
         ))
       }

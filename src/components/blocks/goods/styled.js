@@ -53,15 +53,6 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   }
 `;
 
-const StyledImage = styled.img`
-  grid-area: image;
-  width: 248px;
-  height: 248px;
-
-  margin-top: 20px;
-  margin-left: 20px;
-`;
-
 const StyledDescription = styled.p`
   margin: 0;
   font-size: 16px;
@@ -72,6 +63,5 @@ const StyledDescription = styled.p`
 export {
   StyledSwiperSlide,
   StyledSwiper,
-  StyledImage,
   StyledDescription
 };
