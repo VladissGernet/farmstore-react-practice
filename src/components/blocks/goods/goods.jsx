@@ -12,7 +12,7 @@ import {
 
 const Goods = ({goods}) => (
   <StyledSwiper
-    spaceBetween={10}
+    spaceBetween={20}
     slidesPerView={3}
     direction={'vertical'}
     modules={[Scrollbar]}
