@@ -7,6 +7,10 @@ export const defaultTheme = {
   colorForButton: "#ff732B",
   colorForButtonHover: "#F35714",
 
+  colorButtonSecondary: "#f6f6f6",
+  colorButtonSecondaryHover: "#e5e5e5",
+  borderColorButtonSecondary: "#e5e5e5",
+
   fontFamily: '"Inter", "Arial", sans-serif',
   pageWidth: "1280px"
 };

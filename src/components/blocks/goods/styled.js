@@ -5,6 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
+import { StyledTitle } from '/src/components/ui/title/styled';
+import { StyledTabs } from 'src/components/blocks/tabs/styled';
+
 const StyledSwiper = styled(Swiper)`
   margin-top: -20px;
   margin-left: -20px;
@@ -38,6 +41,16 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+
+  ${StyledTitle} {
+    grid-area: name;
+    margin-top: 20px;
+  }
+
+  ${StyledTabs} {
+    grid-area: tabs;
+    align-self: start;
+  }
 `;
 
 const StyledImage = styled.img`

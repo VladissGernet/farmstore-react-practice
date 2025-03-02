@@ -15,10 +15,10 @@ const StyledOrder = styled.section`
       'form swiper';
     grid-template-columns: 1fr 2fr;
     gap: 40px 30px;
-  }
 
-  ${StyledTitle} {
+    & > ${StyledTitle} {
     grid-area: title;
+  }
   }
 
   ${StyledSwiper} {
