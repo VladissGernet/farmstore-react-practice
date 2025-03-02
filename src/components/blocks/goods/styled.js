@@ -30,6 +30,8 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     'image name'
     'image tabs'
     'image price';
+  grid-template-columns: 248px 1fr;
+  gap: 0 40px;
 
   overflow-y: auto;
 
