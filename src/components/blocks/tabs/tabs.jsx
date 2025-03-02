@@ -9,11 +9,6 @@ const Tabs = ({data}) => {
     return null;
   }
 
-  // Добавить useState
-
-  console.log(data[0].content);
-
-
   return (
     <StyledTabs>
       {
