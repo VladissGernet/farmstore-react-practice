@@ -10,6 +10,7 @@ export const defaultTheme = {
   colorButtonSecondary: "#f6f6f6",
   colorButtonSecondaryHover: "#e5e5e5",
   borderColorButtonSecondary: "#e5e5e5",
+  colorButtonSecondaryDisabled: "#88aa4d",
 
   fontFamily: '"Inter", "Arial", sans-serif',
   pageWidth: "1280px"

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { StyledButton } from '/src/components/ui/button/styled';
 
 const StyledTabs = styled.div`
-
   ${StyledButton} {
+    margin-right: 10px;
     color: ${(props) => props.theme.colorBlackForText};
     background-color: ${(props) => props.theme.colorButtonSecondary};
     border-color: ${(props) => props.theme.borderColorButtonSecondary};
@@ -12,16 +12,20 @@ const StyledTabs = styled.div`
     &:hover {
       background-color: ${(props) => props.theme.borderColorButtonSecondary};
     }
-  }
 
-  outline: 5px solid green;
+    &:disabled {
+      opacity: unset;
+      background-color: ${(props) => props.theme.colorButtonSecondaryDisabled};
+      color: ${(props) => props.theme.colorWhite};
+    }
+  }
 `;
 
 const StyledContent = styled.div`
   margin-top: 20px;
-  padding: 20px;
-  outline: 5px solid tomato;
-  outline-offset: -5px;
+
+  height: 145px;
+  overflow-y: auto;
 `;
 
 export { StyledTabs, StyledContent };

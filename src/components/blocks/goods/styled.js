@@ -62,8 +62,16 @@ const StyledImage = styled.img`
   margin-left: 20px;
 `;
 
+const StyledDescription = styled.p`
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+`;
+
 export {
   StyledSwiperSlide,
   StyledSwiper,
-  StyledImage
+  StyledImage,
+  StyledDescription
 };

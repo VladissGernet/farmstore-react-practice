@@ -2,28 +2,40 @@ import React from 'react';
 
 import { Title } from '/src/components/ui/title/title';
 import { Tabs } from '/src/components/blocks/tabs/tabs';
+import { Specifications } from '/src/components/blocks/specifications/specifications';
 
 import { Scrollbar } from 'swiper/modules';
 import {
   StyledSwiperSlide,
   StyledSwiper,
-  StyledImage
+  StyledImage,
+  StyledDescription
 } from './styled';
-
-// Исправить баг с свайпером, когда не все слайды можно увидеть
-// еще проблема с высотой слайдов
 
 const Goods = ({goods}) => {
   if (goods?.length === false) {
     return null;
   }
 
-  const tabsData = [
-    {
-
-    }
-  ];
-
+  const goodsTabsData = goods.map((good) => {
+    return [
+        {
+          title: 'Описание',
+          content:
+            <StyledDescription>
+              {good.description}
+            </StyledDescription>
+        },
+        {
+          title: 'Характеристики',
+          content: <Specifications data={good.specifications}/>
+        },
+        {
+          title: 'Свойства',
+          content: <Specifications data={good.structure}/>
+        },
+    ]
+  });
 
   return (
     <StyledSwiper
@@ -37,7 +49,7 @@ const Goods = ({goods}) => {
     >
       {
         goods?.length &&
-        goods.map((good) => (
+        goods.map((good, index) => (
           <StyledSwiperSlide key={good.id}>
             <Title
               level={3}
@@ -51,7 +63,7 @@ const Goods = ({goods}) => {
               width={248}
               height={248}
             />
-            <Tabs />
+            <Tabs data={goodsTabsData[index]} />
           </StyledSwiperSlide>
         ))
       }
