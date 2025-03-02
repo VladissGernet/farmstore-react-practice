@@ -7,6 +7,7 @@ import 'swiper/css/scrollbar';
 
 import { StyledTitle } from '/src/components/ui/title/styled';
 import { StyledTabs } from 'src/components/blocks/tabs/styled';
+import { StyledPriceWrapper } from '/src/components/blocks/goods-slide/styled';
 
 const StyledSwiper = styled(Swiper)`
   margin-top: -20px;
@@ -32,7 +33,8 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   grid-template-areas:
     'image name'
     'image tabs'
-    'image price';
+    'image price'
+    'image .';
   grid-template-columns: 248px 1fr;
   gap: 0 40px;
 
@@ -50,6 +52,12 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   ${StyledTabs} {
     grid-area: tabs;
     align-self: start;
+  }
+
+  ${StyledPriceWrapper} {
+    grid-area: price;
+    align-self: end;
+    justify-self: start;
   }
 `;
 

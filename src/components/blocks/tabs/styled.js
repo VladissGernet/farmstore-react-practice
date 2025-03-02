@@ -24,7 +24,7 @@ const StyledTabs = styled.div`
 const StyledContent = styled.div`
   margin-top: 20px;
 
-  height: 145px;
+  height: 108px;
   overflow-y: auto;
 `;
 

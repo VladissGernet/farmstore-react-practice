@@ -9,4 +9,13 @@ const StyledImage = styled.img`
   margin-left: 20px;
 `;
 
-export { StyledImage };
+const StyledPriceWrapper = styled.div`
+  padding: 2px 10px;
+  background-color: ${(props) => props.theme.colorPrice};
+  font-weight: 600;
+`;
+
+export {
+  StyledImage,
+  StyledPriceWrapper
+ };

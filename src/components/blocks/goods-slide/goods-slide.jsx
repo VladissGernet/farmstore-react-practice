@@ -3,14 +3,15 @@ import React from 'react';
 import { Title } from '/src/components/ui/title/title';
 import { Tabs } from '/src/components/blocks/tabs/tabs';
 
-import { StyledImage } from './styled';
+import {
+  StyledImage,
+  StyledPriceWrapper
+ } from './styled';
 
 const GoodsSlide = ({
   good,
   tabsData
-}) => {
-
-  return (
+}) => (
     <>
       <Title
         level={3}
@@ -25,8 +26,10 @@ const GoodsSlide = ({
         height={248}
       />
       <Tabs data={tabsData} />
+      <StyledPriceWrapper>
+        <span>{good.price}</span> руб. / <span>{good.weight}</span> гр.
+      </StyledPriceWrapper>
     </>
-  );
-};
+);
 
 export { GoodsSlide };
