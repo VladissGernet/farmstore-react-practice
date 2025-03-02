@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 
 const StyledSwiper = styled(Swiper)`
-  max-height: 700px;
+  height: 500px;
   user-select: none;
 `;
 
@@ -18,8 +18,23 @@ const StyledSwiperSlide = styled(SwiperSlide)`
   background-color: #ffffff;
   width: auto;
 
-  max-height: 300px;
   overflow-y: auto;
+
+  display: grid;
+  grid-template-areas:
+    'image name'
+    'image tabs'
+    'image price';
 `;
 
-export { StyledSwiperSlide, StyledSwiper };
+const StyledImage = styled.img`
+  grid-area: image;
+  width: 248px;
+  height: 248px;
+`;
+
+export {
+  StyledSwiperSlide,
+  StyledSwiper,
+  StyledImage
+};

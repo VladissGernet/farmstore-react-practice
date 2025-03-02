@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { StyledSwiperSlide, StyledSwiper } from './styled';
 import { Scrollbar } from 'swiper/modules';
+import {
+  StyledSwiperSlide,
+  StyledSwiper,
+  StyledImage
+} from './styled';
+
+// Исправить баг с свайпером, когда не все слайды можно увидеть
+// еще проблема с высотой слайдов
 
 const Goods = ({goods}) => (
   <StyledSwiper
@@ -17,6 +24,12 @@ const Goods = ({goods}) => (
       goods?.length &&
       goods.map((good) => (
         <StyledSwiperSlide key={good.id}>
+          <StyledImage
+            src={good.image}
+            alt={good.name}
+            width={248}
+            height={248}
+          />
           <p>{good.name}</p>
         </StyledSwiperSlide>
       ))
