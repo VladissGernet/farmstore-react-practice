@@ -5,11 +5,13 @@ import { StyledButton } from './styled';
 const Button = ({
   type = 'button',
   children,
-  isDisabled
+  isDisabled,
+  onClick
   }) => (
   <StyledButton
     type={type}
     disabled={isDisabled}
+    onClick={onClick}
   >
     {children}
   </StyledButton>

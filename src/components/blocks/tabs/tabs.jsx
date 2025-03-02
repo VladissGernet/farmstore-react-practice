@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '/src/components/ui/button/button';
 
@@ -9,13 +9,17 @@ const Tabs = ({data}) => {
     return null;
   }
 
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <StyledTabs>
       {
-        data.map((tab) => {
+        data.map((tab, index) => {
           return (
             <Button
               key={tab.title}
+              isDisabled={activeTab === index}
+              onClick={() => setActiveTab(index)}
             >
               {tab.title}
             </Button>
@@ -23,7 +27,7 @@ const Tabs = ({data}) => {
         })
       }
       <StyledContent>
-        {data[2].content}
+        {data[activeTab].content}
       </StyledContent>
     </StyledTabs>
   )

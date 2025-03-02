@@ -9,6 +9,7 @@ const GoodsSlide = ({
   good,
   tabsData
 }) => {
+
   return (
     <>
       <Title
