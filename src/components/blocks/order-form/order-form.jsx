@@ -23,6 +23,24 @@ const onProductChange = (
     });
 };
 
+const getSentence = (productsState, productsData) => {
+  let newSentence = productsState.reduce((sentence, product, index) => {
+    if (product) {
+      return sentence + productsData[index].name + ', ';
+    }
+    return sentence;
+  }, '');
+
+  return newSentence.slice(0, -2);
+};
+
+const onOrderSubmit = (e, productsState, productsData, address) => {
+  e.preventDefault();
+
+  const orderText = `Вы заказали ${getSentence(productsState, productsData)} на адрес: ${address}.`;
+  console.log(orderText);
+};
+
 const OrderForm = ({
   productsData,
   productsState,
@@ -54,10 +72,7 @@ const OrderForm = ({
 
   return (
     <StyledOrderForm
-    onSubmit={(e) => {
-      e.preventDefault();
-      alert('Заказ отправлен');
-    }}
+      onSubmit={(e) => onOrderSubmit(e, productsState, productsData, address)}
     >
       <ProductsSection>
         <Title
