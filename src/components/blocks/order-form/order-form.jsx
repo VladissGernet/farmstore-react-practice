@@ -34,11 +34,12 @@ const getSentence = (productsState, productsData) => {
   return newSentence.slice(0, -2);
 };
 
-const onOrderSubmit = (e, productsState, productsData, address) => {
+const onOrderSubmit = (e, productsState, productsData, address, totalPrice) => {
   e.preventDefault();
+  const orderText = `Вы заказали ${getSentence(productsState, productsData)} на адрес: ${address}. Стоимость заказа: ${totalPrice} руб.`;
 
-  const orderText = `Вы заказали ${getSentence(productsState, productsData)} на адрес: ${address}.`;
-  console.log(orderText);
+  // Условная отправка заказа.
+  alert(orderText);
 };
 
 const OrderForm = ({
@@ -58,6 +59,9 @@ const OrderForm = ({
   // Сохраняю ссылку на предыдущее состояние.
   const prevProductsStateRef = useRef(productsState);
 
+  // Сохраняю ссылку на цену
+  const resultPrice = useRef(0);
+
   // Прокручиваю слайдер к выбраному продукту
   useEffect(() => {
     // Получаю индекс выбранного продукта
@@ -72,7 +76,7 @@ const OrderForm = ({
 
   return (
     <StyledOrderForm
-      onSubmit={(e) => onOrderSubmit(e, productsState, productsData, address)}
+      onSubmit={(e) => onOrderSubmit(e, productsState, productsData, address, resultPrice.current)}
     >
       <ProductsSection>
         <Title
@@ -104,6 +108,7 @@ const OrderForm = ({
         <Counter
           states={productsState}
           values={prices}
+          resultPrice={resultPrice}
         />
         <Button
           type="submit"
