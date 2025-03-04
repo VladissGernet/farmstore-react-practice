@@ -42,7 +42,10 @@ const OrderForm = ({
 
   // Прокручиваю слайдер к выбраному продукту
   useEffect(() => {
-    const selectedIndex = productsState.findIndex((product, index) => product !== prevProductsStateRef.current[index])
+    // Получаю индекс выбранного продукта
+    const selectedIndex = productsState.findIndex((product, index) => {
+      return product !== prevProductsStateRef.current[index] && product === true;
+    })
     if(selectedIndex >= 0) {
       swiperRef.current.swiper.slideTo(selectedIndex);
     }
