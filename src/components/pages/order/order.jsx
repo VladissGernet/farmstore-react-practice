@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 // Mock Data
 import { productsData } from '/src/mocks/products-data';
@@ -20,6 +20,9 @@ const Order = () => {
   const [productsState, setProducts] = useState(Array(productsData.length).fill(false));
   const [address, setAddress] = useState('');
 
+  // Создаю ссылку на swiper
+  const swiperRef = useRef(null);
+
   return (
     <StyledOrder>
       <Container>
@@ -35,8 +38,13 @@ const Order = () => {
           setProducts={setProducts}
           address={address}
           setAddress={setAddress}
+          swiperRef={swiperRef}
         />
-        <Goods goods={productsData} />
+        {/* Подключаю ссылку на swiper через ref */}
+        <Goods
+          goods={productsData}
+          ref={swiperRef}
+        />
       </Container>
     </StyledOrder>
   )

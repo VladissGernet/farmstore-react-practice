@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { Title } from '/src/components/ui/title/title';
 import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
@@ -12,12 +12,15 @@ import {
   StyledOrderForm
 } from './styled';
 
-const onProductChange = (index, setProducts) => {
-  setProducts((prevProductsState) => {
-    const newProductsState = [...prevProductsState];
-    newProductsState[index] = !newProductsState[index]; // Тогглить состояние чекбокса
-    return newProductsState;
-  });
+const onProductChange = (
+    index,
+    setProducts
+  ) => {
+    setProducts((prevProductsState) => {
+      const newProductsState = [...prevProductsState];
+      newProductsState[index] = !newProductsState[index]; // Тогглить состояние чекбокса
+      return newProductsState;
+    });
 };
 
 const OrderForm = ({
@@ -25,13 +28,26 @@ const OrderForm = ({
   productsState,
   setProducts,
   address,
-  setAddress
+  setAddress,
+  swiperRef
 }) => {
   // Проверяем наличие выбранного хотябы одного продукта и заполненного поля адреса.
   const isSubmitEnabled = productsState.some((product) => product) && Boolean(address);
 
   // Создаем массив цен
   const prices = productsData.map((product) => product.price);
+
+  // Сохраняю ссылку на предыдущее состояние.
+  const prevProductsStateRef = useRef(productsState);
+
+  // Прокручиваю слайдер к выбраному продукту
+  useEffect(() => {
+    const selectedIndex = productsState.findIndex((product, index) => product !== prevProductsStateRef.current[index])
+    if(selectedIndex >= 0) {
+      swiperRef.current.swiper.slideTo(selectedIndex);
+    }
+    prevProductsStateRef.current = productsState;
+  }, [productsState]);
 
   return (
     <StyledOrderForm

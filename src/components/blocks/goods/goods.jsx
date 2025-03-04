@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { Specifications } from '/src/components/blocks/specifications/specifications';
 import { GoodsSlide } from '/src/components/blocks/goods-slide/goods-slide';
@@ -10,7 +10,10 @@ import {
   StyledDescription
 } from './styled';
 
-const Goods = ({goods}) => {
+// ForwardRef нужен для прокидывания ссылки на swiper,
+// чтобы можно было прокрутить до выбраного продукта.
+
+const Goods = forwardRef(({goods}, swiperRef) => {
   if (goods?.length === false) {
     return null;
   }
@@ -38,6 +41,8 @@ const Goods = ({goods}) => {
 
   return (
     <StyledSwiper
+      // ref нужен для прокрутки до выбраного продукта через клик по checkbox
+      ref={swiperRef}
       spaceBetween={20}
       slidesPerView={3}
       direction={'vertical'}
@@ -59,6 +64,8 @@ const Goods = ({goods}) => {
       }
     </StyledSwiper>
   )
-};
+});
+
+Goods.displayName = 'Goods';
 
 export { Goods };
