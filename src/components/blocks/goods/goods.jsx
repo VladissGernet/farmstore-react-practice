@@ -15,6 +15,7 @@ const Goods = ({goods}) => {
     return null;
   }
 
+  // Данные для табов
   const goodsTabsData = goods.map((good) => {
     return [
         {

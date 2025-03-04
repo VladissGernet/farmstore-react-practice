@@ -3,6 +3,7 @@ import React from 'react';
 import { Title } from '/src/components/ui/title/title';
 import { CheckboxList } from '/src/components/blocks/checkbox-list/checkbox-list';
 import { Button } from '/src/components/ui/button/button';
+import { Counter } from '/src/components/blocks/counter/counter';
 
 import {
   ProductsSection,
@@ -28,6 +29,9 @@ const OrderForm = ({
 }) => {
   // Проверяем наличие выбранного хотябы одного продукта и заполненного поля адреса.
   const isSubmitEnabled = productsState.some((product) => product) && Boolean(address);
+
+  // Создаем массив цен
+  const prices = productsData.map((product) => product.price);
 
   return (
     <StyledOrderForm
@@ -62,6 +66,10 @@ const OrderForm = ({
           placeholder="Введите адрес доставки"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
+        />
+        <Counter
+          states={productsState}
+          values={prices}
         />
         <Button
           type="submit"
